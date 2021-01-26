@@ -1,3 +1,4 @@
+{% load staticfiles %}
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
@@ -15,6 +16,8 @@
                 {% if result.poster_path %}
                 <img class="card-img-top" src="{{ image_url }}{{ result.poster_path }}" alt="Movie image cap"
                     height=300>
+                {% else %}
+                <img class="card-img-top" src="{% static 'default.jpg'%}" alt="Movie image cap" height=300>
                 {% endif %}
                 <div class="card-body">
                     <h5 class="card-title">{{ result.original_title }}
