@@ -22,8 +22,6 @@ def home(request):
 
 def search(request):
     find = request.GET.get('search')
-    print(find)
-
     url = "https://api.themoviedb.org/3/search/movie?api_key=de8f28fe9542059df82d3faa0485ce94&language=en-US&query=" + find
     results = requests.request(
         "GET", url).json()
@@ -39,7 +37,7 @@ def search(request):
 
     image = "http://image.tmdb.org/t/p/w185/"
 
-    return render(request, "search.html", {'image_url': image, 'results': results})
+    return render(request, "search.html", {'image_url': image, 'results': results,'find':find})
 
 
 def details(request, title, overview, rating, image, id):
