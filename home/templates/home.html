@@ -21,7 +21,7 @@
                 {% if r.poster_path %}
                 ({{ r.release_date }})
                 {% endif %}</h5>
-            <h6>Rating:{{ result.vote_average }}</h5>
+            <h6>Rating:{{ r.vote_average }}</h5>
                 <center>
                     <form
                         action="details/{{ r.original_title }}/{{ r.overview }}/{{ r.vote_average }}{{ r.poster_path }}/{{ r.id }}">
