@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<form class="form-inline m-4" action="search/">
+    Movie Name
+    <div class="form-group mx-sm-3 mb-2">
+        <label class="sr-only">Movie Name</label>
+        <input type="text" class="form-control" name="search">
+    </div>
+    <button type="submit" class="btn btn-primary mb-2">Search</button>
+</form>
+<h3>Trending Movies</h3>
+
+<div class="card-columns m-2">
+    {% for r in response %}
+    <div class="card">
+        {% if r.poster_path %}
+        <img class="card-img-top" src="{{ image_url }}{{ r.poster_path }}" alt="Movie image cap" height=300>
+        {% endif %}
+        <div class="card-body">
+            <h5 class="card-title">{{ r.original_title }}
+                {% if r.poster_path %}
+                ({{ r.release_date }})
+                {% endif %}</h5>
+            <h6>Rating:{{ result.vote_average }}</h5>
+                <center>
+                    <form
+                        action="details/{{ r.original_title }}/{{ r.overview }}/{{ r.vote_average }}{{ r.poster_path }}/{{ r.id }}">
+                        <button class="btn btn-primary" type="submit">
+                            Details
+                        </button>
+                    </form>
+                </center>
+        </div>
+    </div>
+    {% endfor %}
+</div>
