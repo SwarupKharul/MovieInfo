@@ -1,1 +1,1 @@
-web: gunicorn MovieInfo.wsgi --lof-file -
+web: gunicorn MovieInfo.wsgi --log-file -
